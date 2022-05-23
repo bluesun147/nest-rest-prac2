@@ -33,16 +33,9 @@ export class BoardsService {
     // }
 
      
-    async createBoard(createBoardDto): Promise<Board> {
-        const {title, description} = createBoardDto;
-        const board = this.boardRepository.create({
-            title,
-            description,
-            status: BoardStatus.PUBLIC
-        })
-
-        await this.boardRepository.save(board);
-        return board;
+    createBoard(createBoardDto): Promise<Board> {
+         // dto에 정보 들어있음
+        return this.boardRepository.createBoard(createBoardDto);
     }   
      
 
